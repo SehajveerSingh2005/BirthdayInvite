@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aana Padedga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=VT323&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+    }
+    body{
+        margin: 0;
+        height: 100vh;
+    }
+    .main{
+        width: 100%;
+        position: fixed;
+        top: calc(40vh - 110px);
+        text-align: center;
+    }
+    .title{
+        color: rgb(255, 255, 255);
+        font-size: 40px;
+        text-align: center;
+        font-family: 'Roboto Slab';
+        margin-bottom: 20px;
+    }
+    .invite{
+        color: whitesmoke;
+        font-size: 1.5rem;
+        width: 60vw;
+        text-align: center;
+        font-family: 'Roboto Slab';
+        margin-bottom: 20px;
+    }
+    .info{
+        color: whitesmoke;
+        font-size: 30px;
+        text-align: center;
+        font-family: 'Roboto Slab';
+        margin-top: 100px;
+    }
+
+.title-section {
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.header-content {
+  width: 100%;
+  position: fixed;
+  top: calc(40vh - 110px);
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px #000000;
+  font-size: 2em;
+}
+
+.header-image {
+  height: 100%;
+/*   width: 100%; */
+  background-image: url('photo.jpg');
+  background-position: top;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-size:  cover;
+/*  background-color: #999; */
+}
+
+.msg-section {
+  position: relative;
+  height: 700px;
+  position: relative;
+  background-image: linear-gradient(135deg, #958E69, #000000);
+  -webkit-clip-path: polygon(0 0, 100% calc(0% + 30px), 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% calc(0% + 30px), 100% 100%, 0 100%);
+  margin-top: -30px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-section {
+  position: relative;
+  height: 700px;
+  background-image: url("https://content3.jdmagicbox.com/comp/chandigarh/q1/0172px172.x172.170717105542.z1q1/catalogue/amigos-cafe-mohali-sas-nagar-mohali-fast-food-4fmty5t.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  clip-path: polygon(0 calc(0% + 60px), 100% 0, 100% 100%, 0 100%);
+  margin-top: -60px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+<body>
+    <section class="title-section">
+        <div class="main">
+            <div class="title" id="title"></div></div>
+            <div class="header-image"></div>
+    </section>
+    <section class="msg-section">
+        <div class="invite">Maybe I'm having a lil party for my 19th budday and maybe you are invited cuz you just got redirected to this page. So, now it's mandatory for you to come or face consequences.</div>
+    </section>
+    <section class="details-section">
+        <div class="info">Oh, it's at Amigo's Cafe, 3B2 <br> 12:30 pm onwards <br> on 14th of June if you don't know -_- <br> Ok bye <br><br> < /html > </div>
+    </section>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const username = urlParams.get('name');
+  
+      if (username) {
+        document.getElementById("title").innerHTML = "Hi " + username + "!";
+      } else {
+        // Handle cases where the parameter is missing
+      }
+    });
+
+  </script>
+  <script>
+    $(window).on('scroll', function () {
+    var scrolled = $(this).scrollTop();
+    $('.main').css({
+      'transform': 'translate3d(0, ' + -(scrolled * 0.20) + 'px, 0)', // parallax (20% scroll rate)
+      'opacity': 1 - scrolled / 400 // fade out
+    });
+    $('.details-section').css({
+  'transform': 'translate3d(0, ' + -(scrolled * 0.20) + 'px, 0)', // parallax (10% scroll rate)
+});       
+    // $('.header-image').css('transform', 'translate3d(0, ' + -(scrolled * 0.03) + 'px, 0)');
+});
+  </script>
+</html>

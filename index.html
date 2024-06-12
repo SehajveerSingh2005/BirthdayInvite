@@ -127,7 +127,7 @@
     const allowedNames = ["Sehajveer", "Astha", "Aryaan","Bhupinder","Khusi","Bhavya","Vani","Sucksome","Arpit","Gadhi","Tushar","Anandita"]; // Your list of names
 
     if (allowedNames.includes(username)) {
-      window.location.href = "invite.html"; // Replace with your target URL
+      window.location.href = "invite.html?name=" + username; // Replace with your target URL
       return false; // Prevent default form submission
     } else {
       alert("Name not found. Please try again.");

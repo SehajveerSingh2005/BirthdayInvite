@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is this?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=VT323&display=swap" rel="stylesheet">
+      <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> 
+      <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+    }
+    body{ margin:0; font:normal 75% Arial, Helvetica, sans-serif; } 
+    canvas{ display: block; vertical-align: bottom; } /* ---- particles.js container ---- */ 
+    #particles-js{ position:absolute; 
+        width: 100%; 
+        height: 100%; 
+        background-color: #111111; 
+        background-image: url(""); 
+        background-repeat: no-repeat; 
+        background-size: cover; 
+        background-position: 50% 50%;
+        z-index: -1;
+     } 
+
+    .title{
+        color: whitesmoke;
+        text-align: center;
+        font-family: 'Roboto Slab';
+        font-size: 40px;
+        z-index: 1;
+        position: relative;
+        margin-bottom: 40px;
+    }
+
+    .main{
+        display: flex;
+        position: absolute;
+        width: 100%; 
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content:center;
+    }
+    .subtitle{
+        color: whitesmoke;
+        font-size: 40px;
+        font-family: 'Roboto Slab';
+        text-align: center;
+    }
+    input {
+  background: 0;
+  border: 0;
+  outline: none;
+  width: 50vw;
+  max-width: 400px;
+  font-size: 1.5em;
+  color: whitesmoke;
+  transition: padding 0.3s 0.2s ease;
+
+  &:focus {
+    padding-bottom: 5px;
+  }
+
+  &:focus + .line {
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.field {
+  position: relative;
+    
+  .line {
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    bottom: -8px;
+    background: #bdc3c7;
+
+    &:after {
+      content: " ";
+      position: absolute;
+      float: right;
+      width: 100%;
+      height: 3px;
+      
+      transform: scalex(0);
+      transition: transform 0.3s ease;
+      
+      background: whitesmoke;
+    }
+  }
+}
+.btn{
+    background-color: whitesmoke;
+    width: 30px;
+    height: 40px;
+}
+</style>
+<body>
+    <div class="main">
+        <div id="particles-js"></div>
+        <div class="title">Welcome</div>
+        <div class="field">
+            <form onsubmit="return validateName()">
+                <input type="text" id="name" placeholder="Enter Your First Name" required>
+                <div class="line"></div>
+                <button type="submit" style="padding: 10px; width: 40px; height: 40px; border-radius: 6px; background-color: whitesmoke; font-size: 1rem;">></button>
+              </form>
+              
+        </div>
+        <!-- <p class="subtitle">This is to invite you to Mr SehaZ's 19th Birthday Celebration</p> -->
+    </div>
+
+</body>
+<script>
+    particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":3},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":true,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+
+  function validateName() {
+    const username = document.getElementById("name").value;
+    const allowedNames = ["Sehajveer", "Astha", "Aryaan","Bhupinder","Khusi","Bhavya","Vani","Sucksome","Arpit","Gadhi","Tushar","Anandita"]; // Your list of names
+
+    if (allowedNames.includes(username)) {
+      window.location.href = "invite.html"; // Replace with your target URL
+      return false; // Prevent default form submission
+    } else {
+      alert("Name not found. Please try again.");
+      return false; // Prevent default form submission
+    }
+  }
+
+</script>
+</html>
